@@ -1,27 +1,29 @@
-/* Tailwind base */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global Reset + Base Styling */
+/* Base */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #f3f4f6; /* Tailwind bg-gray-100 */
-  color: #1f2937; /* Tailwind text-gray-800 */
+  background-color: #f3f4f6;
+  color: #1f2937;
 }
 
+/* Smooth UI transitions (safe version) */
 * {
-  transition-property: all;
-  transition-duration: 150ms;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Scrollbar styling (premium touch) */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5f5;
+  background: #9ca3af;
   border-radius: 10px;
 }

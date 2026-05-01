@@ -1,37 +1,27 @@
-:root {
-  --bg: #0f172a;
-  --card: #111827;
-  --text: #e5e7eb;
-  --muted: #94a3b8;
-  --primary: #4f46e5;
-  --secondary: #22c55e;
-  --danger: #ef4444;
-  --border: #1f2937;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Base */
 body {
-  background: var(--bg);
-  color: var(--text);
+  @apply bg-gray-100 text-gray-800;
   font-family: "Inter", sans-serif;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* Optional: Smooth transitions */
+* {
+  @apply transition-colors duration-200;
 }
 
-.main-layout {
-  display: flex;
-  min-height: 100vh;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.content-area {
-  flex: 1;
-  padding: 24px;
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 10px;
 }

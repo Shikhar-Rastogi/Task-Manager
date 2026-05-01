@@ -1,55 +1,88 @@
-.navbar {
-  background: var(--card);
-  padding: 16px 24px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.sidebar {
-  width: 240px;
-  background: var(--card);
-  padding: 20px;
-  border-right: 1px solid var(--border);
-}
+/* ---------------- COMPONENTS ---------------- */
 
-.sidebar a {
-  display: block;
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  color: var(--muted);
-}
+@layer components {
 
-.sidebar a:hover {
-  background: var(--border);
-  color: var(--text);
-}
+  /* Card */
+  .card {
+    @apply bg-white border border-gray-200 p-4 rounded-xl shadow-sm hover:shadow-md transition;
+  }
 
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 16px;
-}
+  /* Navbar */
+  .navbar {
+    @apply bg-gray-900 text-white px-6 py-3 flex justify-between items-center shadow;
+  }
 
-.task-status {
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-}
+  /* Sidebar */
+  .sidebar {
+    @apply w-60 bg-gray-900 text-white p-5 border-r border-gray-800;
+  }
 
-.status-todo { background: #1e293b; }
-.status-progress { background: #f59e0b; color: #000; }
-.status-done { background: #22c55e; color: #000; }
-.page { padding: 24px; }
-.form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; }
-.form input, .form textarea, .form select { padding: 8px; border-radius: 6px; border: 1px solid #333; }
-.btn-primary { background: #4f46e5; color: #fff; padding: 8px 12px; border: none; border-radius: 6px; }
-.btn-danger { background: #ef4444; color: #fff; padding: 6px 10px; border: none; border-radius: 6px; }
-.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.board-col { background: #111827; border: 1px solid #1f2937; padding: 10px; border-radius: 10px; }
-.card-list { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
-.muted { color: #94a3b8; }
+  .sidebar a {
+    @apply block px-3 py-2 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white;
+  }
+
+  /* Status badges */
+  .task-status {
+    @apply text-xs px-2 py-1 rounded-full font-medium;
+  }
+
+  .status-todo {
+    @apply bg-gray-200 text-gray-700;
+  }
+
+  .status-progress {
+    @apply bg-yellow-100 text-yellow-700;
+  }
+
+  .status-done {
+    @apply bg-green-100 text-green-700;
+  }
+
+  /* Page layout */
+  .page {
+    @apply p-6 bg-gray-100 min-h-screen;
+  }
+
+  /* Forms */
+  .form {
+    @apply flex flex-col gap-3 max-w-md;
+  }
+
+  .form input,
+  .form textarea,
+  .form select {
+    @apply border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600;
+  }
+
+  /* Board */
+  .board {
+    @apply grid md:grid-cols-3 gap-4;
+  }
+
+  .board-col {
+    @apply bg-gray-50 p-4 rounded-xl shadow;
+  }
+
+  /* Lists */
+  .card-list {
+    @apply mt-4 flex flex-col gap-3;
+  }
+
+  /* Muted text */
+  .muted {
+    @apply text-gray-500;
+  }
+}

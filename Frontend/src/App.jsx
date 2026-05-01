@@ -21,68 +21,13 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/projects"
-          element={
-            <ProtectedRoute>
-              <Projects />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/projects/:id"
-          element={
-            <ProtectedRoute>
-              <ProjectDetails />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/projects/new"
-          element={
-            <ProtectedRoute>
-              <CreateProject />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/projects/:id/members"
-          element={
-            <ProtectedRoute>
-              <ManageMembers />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/projects/:id/tasks/new"
-          element={
-            <ProtectedRoute>
-              <CreateTask />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/tasks/board"
-          element={
-            <ProtectedRoute>
-              <TaskBoard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
+        <Route path="/projects/new" element={<ProtectedRoute><CreateProject /></ProtectedRoute>} />
+        <Route path="/projects/:id" element={<ProtectedRoute><ProjectDetails /></ProtectedRoute>} />
+        <Route path="/projects/:id/members" element={<ProtectedRoute><ManageMembers /></ProtectedRoute>} />
+        <Route path="/projects/:id/tasks/new" element={<ProtectedRoute><CreateTask /></ProtectedRoute>} />
+        <Route path="/tasks/board" element={<ProtectedRoute><TaskBoard /></ProtectedRoute>} />
       </Routes>
     </>
   );
