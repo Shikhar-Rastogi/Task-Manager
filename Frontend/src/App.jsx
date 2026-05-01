@@ -7,6 +7,10 @@ import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
+import CreateProject from "./pages/CreateProject";
+import ManageMembers from "./pages/ManageMembers";
+import CreateTask from "./pages/CreateTask";
+import TaskBoard from "./pages/TaskBoard";
 
 function App() {
   return (
@@ -40,6 +44,42 @@ function App() {
           element={
             <ProtectedRoute>
               <ProjectDetails />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/projects/new"
+          element={
+            <ProtectedRoute>
+              <CreateProject />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/projects/:id/members"
+          element={
+            <ProtectedRoute>
+              <ManageMembers />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/projects/:id/tasks/new"
+          element={
+            <ProtectedRoute>
+              <CreateTask />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/tasks/board"
+          element={
+            <ProtectedRoute>
+              <TaskBoard />
             </ProtectedRoute>
           }
         />

@@ -15,7 +15,6 @@ body {
   transition-property: all;
   transition-duration: 150ms;
 }
-}
 
 /* Scrollbar styling (premium touch) */
 ::-webkit-scrollbar {
