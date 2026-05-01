@@ -34,7 +34,6 @@ export const createTask = async (req, res) => {
   res.json(task);
 };
 
-
 // GET TASKS
 export const getTasks = async (req, res) => {
   const { projectId } = req.query;
@@ -53,20 +52,27 @@ export const getTasks = async (req, res) => {
     return res.status(404).json({ message: "Project not found" });
   }
 
-  const isMember = project.members.some(
+  const member = project.members.find(
     (m) => m.user.toString() === req.user._id.toString()
   );
 
-  if (!isMember) {
+  if (!member) {
     return res.status(403).json({ message: "Not a project member" });
   }
 
-  const tasks = await Task.find({ projectId })
-    .populate("assignedTo", "name email");
+  const query = { projectId };
+
+  if (member.role !== "Admin") {
+    query.assignedTo = req.user._id;
+  }
+
+  const tasks = await Task.find(query).populate(
+    "assignedTo",
+    "name email"
+  );
 
   res.json(tasks);
 };
-
 
 // UPDATE TASK (assigned user OR project admin)
 export const updateTask = async (req, res) => {
