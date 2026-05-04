@@ -1,3 +1,4 @@
+// src/pages/Signup.jsx
 import { useState } from "react";
 import API from "../api/api";
 import { useNavigate, Link } from "react-router-dom";
@@ -8,6 +9,7 @@ const Signup = () => {
     name: "",
     email: "",
     password: "",
+    role: "Member",
   });
 
   const [loading, setLoading] = useState(false);
@@ -34,7 +36,9 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+
         {/* Title */}
         <h2 className="text-2xl font-bold text-center text-gray-800">
           Create Account
@@ -46,6 +50,7 @@ const Signup = () => {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-6">
+
           {/* Name */}
           <div className="relative">
             <FaUser className="absolute top-3 left-3 text-gray-400" />
@@ -88,6 +93,18 @@ const Signup = () => {
             />
           </div>
 
+          {/* Role */}
+          <select
+            value={form.role}
+            onChange={(e) =>
+              setForm({ ...form, role: e.target.value })
+            }
+            className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            <option value="Member">Member</option>
+            <option value="Admin">Admin</option>
+          </select>
+
           {/* Button */}
           <button
             type="submit"
@@ -105,6 +122,7 @@ const Signup = () => {
             Login
           </Link>
         </p>
+
       </div>
     </div>
   );
